@@ -11,7 +11,7 @@ import  { ContextData } from "../context/Context";
 
 
 const Register = () => {
-    const {googleUser,createuser,setUser,updateProfile}= useContext(ContextData)
+    const {googleUser,createuser,setUser,updateProfile,githubUser}= useContext(ContextData)
     const [toggle, setToggle] = useState(false)
     const [err, setErr] = useState(false)
     
@@ -51,6 +51,17 @@ const Register = () => {
        
     }
 
+    const handleGithub = () => {
+        console.log('github');
+        githubUser()
+        .then(res=>{
+            setUser(res.user);
+        }).catch(err=>{
+           setErr(err);
+        })
+       
+    }
+
     return (
         <div className="flex justify-center items-center my-5">
             <div className="card  w-full max-w-lg  my-6">
@@ -79,7 +90,7 @@ const Register = () => {
 
                         {err === 'Firebase: Error (auth/email-already-in-use).' ?
 
-                                <span className="text-red-500">This email already have on account</span> : <span className="text-red-500">{err}</span>}
+                                <span className="text-red-500">This email already have on account</span> : <span className="text-red-500">{err.massage}</span>}
                     </div>
                     <div className="form-control">
                         <span className="label-text my-2">Password</span>
@@ -100,7 +111,7 @@ const Register = () => {
                 <div className="grid grid-cols-2 gap-3  px-8">
 
                     <div onClick={handleGoogle} className="flex gap-2 items-center text-center justify-center border border-black p-2 rounded-full cursor-pointer" > <FaGoogle /> Google</div>
-                    <div className="flex gap-2 items-center text-center justify-center border border-black p-2 rounded-full cursor-pointer" > <FaGithub /> Github</div>
+                    <div onClick={handleGithub} className="flex gap-2 items-center text-center justify-center border border-black p-2 rounded-full cursor-pointer" > <FaGithub /> Github</div>
 
                 </div>
             </div>
