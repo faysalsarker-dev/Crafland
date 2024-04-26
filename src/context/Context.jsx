@@ -2,7 +2,7 @@
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { app } from './../firebase/firebase.config';
-import { GoogleAuthProvider } from "firebase/auth/cordova";
+import { GithubAuthProvider, GoogleAuthProvider  } from "firebase/auth/cordova";
 
 export const ContextData = createContext(null)
 
@@ -14,7 +14,7 @@ const Context = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     const GoogleProvider = new GoogleAuthProvider();
-    const GithubeProvider = new GithubeProvider();
+    const GithubProvider = new GithubAuthProvider() ;
 
 
     //  create user 
@@ -48,9 +48,9 @@ const Context = ({ children }) => {
     }
 
     // Githube 
-    const githubeLogin = () => {
+    const githubLogin = () => {
         setLoading(true)
-        return signInWithPopup(auth, GithubeProvider)
+        return signInWithPopup(auth, GithubProvider)
     }
 
     useEffect(() => {
@@ -78,7 +78,7 @@ const Context = ({ children }) => {
         loading,
         setLoading,
         googleLogin,
-        githubeLogin,
+        githubLogin,
         logOut,
         user,
         profileUpdate
