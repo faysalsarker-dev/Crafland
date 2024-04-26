@@ -4,7 +4,6 @@ import Footer from "../component/Footer";
 
 
 const Root = () => {
-    console.log('root');
     return (
         <>
         <div className=" max-w-6xl mx-auto">

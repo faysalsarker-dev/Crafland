@@ -2,12 +2,12 @@ import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import { FaRegEyeSlash } from "react-icons/fa";
-import { ContextData } from "../context/Context";
+
 
 const Login = () => {
-    const {googleLogin}=useContext(ContextData)
+   
     const [toggle,setToggle]=useState(false)
 
 
@@ -24,13 +24,7 @@ const Login = () => {
 
     const google=()=>{
         console.log('google');
-        googleLogin()
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-        }).catch(err=>{
-            console.log(err);
-        })
+    
     }
 
 

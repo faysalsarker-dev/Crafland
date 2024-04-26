@@ -1,12 +1,13 @@
+
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { ContextData } from "../context/Context";
 
 
 
+
 const Navber = () => {
-  const {createUser}=useContext(ContextData)
-  console.log(createUser);
+const {user,logOut}=useContext(ContextData)
   const nav = <>
         <div><NavLink to='/' className={({ isActive }) =>
             isActive ? " text-[#6D31ED] border-b-2  border-b-[#6D31ED] font-bold" : ""
@@ -19,6 +20,10 @@ const Navber = () => {
         } >My Art&Craft List</NavLink></div>
        
     </>
+
+    const handleLogOut=()=>{
+      logOut()
+    }
 
   return (
     <div className="navbar bg-base-100">
@@ -33,14 +38,14 @@ const Navber = () => {
         </div>
         <a className="btn btn-ghost text-xl">daisyUI</a>
       </div>
-      <div className="navbar-end hidden lg:flex gap-4">
+      <div className="navbar-center hidden lg:flex gap-4">
         {/* <ul className="menu menu-horizontal px-1"> */}
          {nav}
         {/* </ul> */}
      
-      <div className=" flex gap-3">
-        <div className="bg-[#6D31ED] text-white rounded-xl px-2 py-1"><NavLink to='/login'>Login</NavLink></div>
-        <div className="bg-[#6D31ED] text-white rounded-xl px-2 py-1"><NavLink to='/register' >Register</NavLink></div>
+      <div className="navber-end flex gap-3">
+        {user?<div onClick={handleLogOut} className="bg-[#6D31ED] text-white rounded-xl px-2 py-1">log out</div>:<><div className="bg-[#6D31ED] text-white rounded-xl px-2 py-1"><NavLink to='/login'>Login</NavLink></div>
+        <div className="bg-[#6D31ED] text-white rounded-xl px-2 py-1"><NavLink to='/register' >Register</NavLink></div></>}
       </div>
        </div>
     </div>

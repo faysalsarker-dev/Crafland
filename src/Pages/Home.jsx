@@ -3,12 +3,14 @@ import Slider from "../component/Slider";
 import { Typewriter } from "react-simple-typewriter";
 
 
+
 const Home = () => {
     return (
         <div>
 
             <div className="lg:h-[80vh] grid grid-cols-2 gap-5 px-4 justify-between items-center">
-                <div className="flex flex-col p-5">
+                <div className='flex flex-col p-5'>
+              
                     <h2 className="text-4xl font-extrabold">Welcome to <span className="text-[#6D31ED]">Crafland</span></h2>
                     <h4 className="text-3xl font-bold">You can     <Typewriter 
             words={['Eat', 'Sleep', 'Code', 'Repeat!']}
