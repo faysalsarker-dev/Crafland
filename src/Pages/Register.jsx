@@ -6,12 +6,13 @@ import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import  { ContextData } from "../context/Context";
+import toast from "react-hot-toast";
 
 
 
 
 const Register = () => {
-    const {googleUser,createuser,setUser,updateProfile,githubUser}= useContext(ContextData)
+    const {googleUser,createuser,setUser,profileUpdate,githubUser}= useContext(ContextData)
     const [toggle, setToggle] = useState(false)
     const [err, setErr] = useState(false)
     
@@ -22,22 +23,35 @@ const Register = () => {
         const form = e.target;
 
         const name = form.name.value;
-        const photoUrl = form.PhotoUrl.value;
+        const photourl = form.PhotoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password);
+        console.log(email,password,name,photourl);
+
+
+       
+       
+
+
         createuser(email,password)
-        .then(()=>{
-            updateProfile(name,photoUrl)
-            .then(res=>{
-              setUser(res.user)  
-            }).catch(err=>{
-                setErr(err)
-            })
-            
-        }).catch(err=>{
-            setErr(err);
+        .then(() => {
+            profileUpdate(name, photourl)
+                .then(updatedUser => {
+                    setUser(updatedUser);
+                    toast.success("Register successful")
+                })
+
+            e.target.reset();
         })
+        .catch(error => {
+            setErr(error.message);
+        })
+        .catch(err => {
+            console.log(err.massage);
+            setErr(err.massage)
+            toast.error('Something went wrong');
+        })
+        
      
     };
 
@@ -45,9 +59,12 @@ const Register = () => {
         googleUser()
         .then(res=>{
             setUser(res.user);
+            toast.success('Successfully Register')
         }).catch(err=>{
-           setErr(err);
+            setErr(err.massage)
+            toast.error("Someting went wrong")
         })
+        
        
     }
 
@@ -56,9 +73,12 @@ const Register = () => {
         githubUser()
         .then(res=>{
             setUser(res.user);
+            toast.success('Successfully Register')
         }).catch(err=>{
-           setErr(err);
+            setErr(err.massage) 
+            toast.error("Someting went wrong")
         })
+        
        
     }
 
@@ -90,7 +110,7 @@ const Register = () => {
 
                         {err === 'Firebase: Error (auth/email-already-in-use).' ?
 
-                                <span className="text-red-500">This email already have on account</span> : <span className="text-red-500">{err.massage}</span>}
+                                <span className="text-red-500">This email already have on account</span> : <span>{err}</span>}
                     </div>
                     <div className="form-control">
                         <span className="label-text my-2">Password</span>

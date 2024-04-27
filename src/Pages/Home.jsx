@@ -38,13 +38,13 @@ const Home = () => {
 
 
             <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-2 p-5 gap-5 text-center text-xl font-medium">
-                <Link> <div className=" bg-[#D3C1FA] rounded-lg h-[150px] flex justify-center items-center">Clay-made pottery</div></Link>
-                <Link> <div className=" bg-[#E2FFD4] rounded-lg h-[150px] flex justify-center items-center">Stoneware</div></Link>
-                <Link><div className=" bg-[#F7ECFF] rounded-lg h-[150px] flex justify-center items-center">Porcelain</div></Link>
-                <Link><div className=" bg-[#FFD9C9] rounded-lg h-[150px] flex justify-center items-center">Terra Cotta</div></Link>
-                <Link><div className=" bg-[#D7F9F3] rounded-lg h-[150px] flex justify-center items-center">Ceramics & Architectural
+                <Link> <div className=" hover:scale-110 transition-transform duration-300 ease-in-out bg-[#D3C1FA] rounded-lg h-[150px] flex justify-center items-center">Clay-made pottery</div></Link>
+                <Link> <div className="hover:scale-110 transition-transform duration-300 ease-in-out bg-[#E2FFD4] rounded-lg h-[150px] flex justify-center items-center">Stoneware</div></Link>
+                <Link><div className="hover:scale-110 transition-transform duration-300 ease-in-out bg-[#F7ECFF] rounded-lg h-[150px] flex justify-center items-center">Porcelain</div></Link>
+                <Link><div className="hover:scale-110 transition-transform duration-300 ease-in-out bg-[#FFD9C9] rounded-lg h-[150px] flex justify-center items-center">Terra Cotta</div></Link>
+                <Link><div className="hover:scale-110 transition-transform duration-300 ease-in-out bg-[#D7F9F3] rounded-lg h-[150px] flex justify-center items-center">Ceramics & Architectural
 </div></Link>
-                <Link><div className=" bg-[#FFF3C9] rounded-lg h-[150px] flex justify-center items-center">Home decor pottery
+                <Link><div className="hover:scale-110 transition-transform duration-300 ease-in-out bg-[#FFF3C9] rounded-lg h-[150px] flex justify-center items-center">Home decor pottery
 </div></Link>
             </div>
 

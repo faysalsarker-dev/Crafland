@@ -2,6 +2,5 @@
     transition: 0.3s ease-in-out, transform 0.3s ease-in-out; 
   }
 .active-route {
-    border-bottom-color: #333; /* Color for active link's bottom border */
-    transform: scale(1.1); /* Scale transform for active link */
+    transform: scale(1.1); 
   }

@@ -13,12 +13,15 @@ const Navber = () => {
     <div><NavLink to='/' className={({ isActive }) =>
       isActive ? "active-route nav-link-active text-[#6D31ED] border-b-2  border-b-[#6D31ED] font-bold" : ""
     } >Home</NavLink></div>
+    <div><NavLink to='/AllArt&craft' className={({ isActive }) =>
+      isActive ? "active-route nav-link-active text-[#6D31ED] border-b-2  border-b-[#6D31ED] font-bold" : ""
+    } >All Art & craft </NavLink></div>
     <div><NavLink to='/AddCraftItem' className={({ isActive }) =>
       isActive ? "active-route nav-link-active text-[#6D31ED] border-b-2  border-b-[#6D31ED] font-bold" : ""
     } >Add Craft Item</NavLink></div>
     <div><NavLink to='/MyArt&CraftList' className={({ isActive }) =>
       isActive ? "active-route nav-link-active text-[#6D31ED] border-b-2  border-b-[#6D31ED] font-bold" : ""
-    } >My Art&Craft List</NavLink></div>
+    } >My Art & Craft List</NavLink></div>
 
   </>
 
@@ -71,9 +74,9 @@ const Navber = () => {
       
       
             events={['click']}
-          ><div className=" ">
+          ><div>
   <div className="flex flex-col justify-center items-center rounded-xl my-5">
-              <div className="w-8 rounded-full p-2 ring ring-primary ring-offset-base-100 ring-offset-2">
+              <div className="w-8 rounded-full  ring ring-primary ring-offset-base-100 ring-offset-2">
             <img src={user.photoURL} alt="" />
           </div>
     <span>{user.displayName}</span>
