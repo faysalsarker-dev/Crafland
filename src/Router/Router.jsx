@@ -6,46 +6,53 @@ import Root from "../Root/Root";
 import {
     createBrowserRouter,
 
-  } from "react-router-dom";
+} from "react-router-dom";
 import RouterProtector from "../component/RouterProtector";
 import AddCraft from "../Pages/AddCraft";
 import MyCraft from "../Pages/MyCraft";
 import Allcraft from "../Pages/Allcraft";
+import ProductDetails from "../Pages/ProductDetails";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element:<Root></Root>,
-        errorElement:<>hi</>,
-        children:[
+        element: <Root></Root>,
+        errorElement: <>hi</>,
+        children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'/AddCraftItem',
-                element:<RouterProtector>
+                path: '/AddCraftItem',
+                element: <RouterProtector>
                     <AddCraft></AddCraft>
-                    </RouterProtector>
+                </RouterProtector>
             },
             {
-                path:'/AllArt&craft',
-                element:<Allcraft></Allcraft>
+                path: '/AllArt&craft',
+                element: <Allcraft></Allcraft>
             },
             {
-                path:'/MyArt&CraftList',
-                element:<RouterProtector>
+                path: '/MyArt&CraftList',
+                element: <RouterProtector>
                     <MyCraft></MyCraft>
-                    </RouterProtector>
-               
+                </RouterProtector>
+
             },
             {
-                path:'/login',
-                element:<Login></Login>,
+                path: '/productDetails/:id',
+                element: <RouterProtector>
+                    <ProductDetails></ProductDetails>
+                </RouterProtector>,
             },
             {
-                path:'/register',
-                element:<Register></Register>,
+                path: '/login',
+                element: <Login></Login>,
+            },
+            {
+                path: '/register',
+                element: <Register></Register>,
             }
         ]
     },
