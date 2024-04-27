@@ -31,13 +31,13 @@ const totalRating = table.reduce((acc, pd) => acc + parseFloat(pd.rating), 0)
                    <h3 className="text-4xl font-bold flex gap-4 items-center"><MdOutlineAttachMoney />{totalPrice}</h3>  
                 </div>
                 <div className="h-[200px] bg-[#F1F8FD] rounded-xl my-4 flex flex-col p-14 space-y-3">
-                <h5 className="text-xl font-semibold">Total Price</h5>
+                <h5 className="text-xl font-semibold">Total Rating</h5>
                    <h3 className="text-4xl font-bold flex gap-4 items-center"><FaRegStar />{totalRating}</h3>  
                 </div>
             </div>
 
             <h3 className="text-3xl font-bold">Detailes</h3>
-            <div className="overflow-x-auto mx-auto">
+            <div className="overflow-x-auto mx-auto ">
   <table className="table">
     {/* head */}
     <thead>
@@ -59,7 +59,7 @@ const totalRating = table.reduce((acc, pd) => acc + parseFloat(pd.rating), 0)
         <td>
           <div className="">
             <div className="avatar">
-              <div className="mask mask-squircle w-12 h-12">
+              <div className="mask mask-squircle w-14 h-18">
                 <img src={pd.img} alt="Avatar Tailwind CSS Component" />
               </div>
             </div>

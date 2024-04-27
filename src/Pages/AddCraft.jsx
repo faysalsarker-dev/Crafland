@@ -17,6 +17,7 @@ const AddCraft = () => {
         const processing_Time = form.processingTime.value;
         const price = form.price.value;
         const rating = form.rating.value;
+        const description = form.description.value;
 
         const sub_category = subcategoryRef.current.value;
         const customization = customizationRef.current.value;
@@ -29,7 +30,7 @@ const AddCraft = () => {
         console.log('submit', name, img, processing_Time, price, rating, sub_category, customization, stockStatus, email, user_name);
 
         const info = {
-            name, img, processing_Time, price, rating, sub_category, customization, stockStatus, email, user_name
+            name, img, processing_Time, price, rating, sub_category, customization, stockStatus,description, email, user_name
         };
 
         fetch('http://localhost:5000/addcraft', {
@@ -145,11 +146,11 @@ const AddCraft = () => {
                             <label className="label">
                                 <span className="label-text">rating</span>
                             </label>
-                            <input type="number" name="rating" placeholder="rating" className="input input-bordered" required />
+                            <input type="text" name="rating" placeholder="rating" className="input input-bordered" required />
                         </div>
                     </div>
 
-
+                    <div className="w-ful my-6"><textarea name="description" className="textarea textarea-bordered w-full" placeholder="short description"></textarea></div>
 
 
 
