@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { CiStar } from "react-icons/ci";
 import { MdOutlineAttachMoney } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 
 const MyCard = ({itm}) => {
@@ -32,7 +33,7 @@ const MyCard = ({itm}) => {
      
       
           <div className="grid grid-cols-2 gap-3">
-            <button className="btn bg-[#6D31ED] text-white">Update</button>
+            <Link className="btn bg-[#6D31ED] text-white" to={`/update/${itm._id}`}><button className="">Update</button></Link>
             <button className="btn bg-[#F5F1FE] text-[#6D31ED]">Delete</button>
           </div>
         </div>

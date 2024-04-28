@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { ContextData } from "../context/Context";
-import { CiStar } from "react-icons/ci";
-import { MdOutlineAttachMoney } from "react-icons/md";
+
 import MyCard from "../component/MyCard";
 
 
