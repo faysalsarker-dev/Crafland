@@ -1,6 +1,6 @@
 import {  useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
-
+import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
 
 
@@ -61,7 +61,12 @@ const UpdatePage = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    toast.success("successfully update")
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Itam Updated Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'close'
+                    })
                 }
                 console.log(data);
             })

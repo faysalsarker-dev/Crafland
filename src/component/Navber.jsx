@@ -55,7 +55,7 @@ const Navber = () => {
 
 
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">CraftLand</a>
       </div>
       <div className="navbar-center hidden lg:flex gap-8">
 
