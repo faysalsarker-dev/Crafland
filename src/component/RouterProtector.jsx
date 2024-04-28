@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { ContextData } from "../context/Context";
 import { Navigate, useLocation } from "react-router-dom";
 
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "/public/groovyWalk.json"
 
 
 
@@ -16,7 +18,7 @@ const RouterProtector = ({children}) => {
      
 
     if(loading){
-        return <div className="h-[80vh] flex justify-center items-center"><span className="loading loading-spinner text-primary loading-lg"></span></div>
+        return <div className="h-[80vh] flex justify-center items-center"> <Lottie className=" w-2/4" animationData={groovyWalkAnimation} loop={true} /></div>
     }
     if(!user){
        return <Navigate to='/login' state={location.pathname}></Navigate>

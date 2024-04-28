@@ -1,5 +1,5 @@
 import {  useEffect, useRef, useState } from "react";
-import toast from "react-hot-toast";
+
 import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
 
@@ -51,27 +51,107 @@ const UpdatePage = () => {
             name, img, processing_Time, price, rating, sub_category, customization, stockStatus, description
         };
 
-        fetch(`http://localhost:5000/update/${id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(info)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.acknowledged) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Itam Updated Successfully',
-                        icon: 'success',
-                        confirmButtonText: 'close'
+
+
+
+
+
+
+
+
+
+
+       
+            const swalWithBootstrapButtons = Swal.mixin({
+              customClass: {
+                confirmButton: "btn bg-[#6D31ED] text-white ml-2",
+                cancelButton: "btn btn-danger"
+              },
+              buttonsStyling: false
+            });
+            swalWithBootstrapButtons.fire({
+              title: "Are you sure?",
+              text: "You won't to Update this!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonText: " Yes, Update it!",
+              cancelButtonText: "No, cancel! ",
+              reverseButtons: true
+            }).then((result) => {
+              if (result.isConfirmed) {
+    
+                fetch(`http://localhost:5000/update/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(info)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.acknowledged) {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: 'Itam Updated Successfully',
+                                icon: 'success',
+                                confirmButtonText: 'close'
+                            })
+                        }
+                        console.log(data);
                     })
-                }
-                console.log(data);
-            })
-            .catch(() => toast.error('Something went wrong'));
+                    
+               
+                  .catch(err =>{
+                  console.log(err);
+                      swalWithBootstrapButtons.fire({
+                        title: "Your file has been not update",
+                        text: `some went wrong`,
+                        icon: "error"
+                      });
+                    
+                  })
+        
+        
+        
+        
+              } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+              ) {
+                swalWithBootstrapButtons.fire({
+                  title: "Cancelled",
+                  text: "Your imaginary file is safe :)",
+                  icon: "error"
+                });
+              }
+            });
+        
+          
+
+
+
+
+
+      
     };
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return (
         <div className="">

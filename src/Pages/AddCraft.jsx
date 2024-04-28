@@ -45,7 +45,7 @@ const AddCraft = () => {
                 if(data.acknowledged){
                     toast.success("successfully added")
                 }
-                console.log(data);
+                e.target.reset();
             })
             .catch(() => toast.error('Something went wrong'));
     };

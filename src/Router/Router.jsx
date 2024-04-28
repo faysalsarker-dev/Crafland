@@ -13,6 +13,7 @@ import MyCraft from "../Pages/MyCraft";
 import Allcraft from "../Pages/Allcraft";
 import ProductDetails from "../Pages/ProductDetails";
 import UpdatePage from "../Pages/UpdatePage";
+import Category from "../Pages/Category";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,11 @@ const router = createBrowserRouter([
                 element:<RouterProtector>
                     <UpdatePage></UpdatePage>
                 </RouterProtector>
+            },
+            {
+
+                path:'/category/:info',
+                element:<Category></Category>
             },
             {
                 path: '/login',
