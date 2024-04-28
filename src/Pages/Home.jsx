@@ -10,11 +10,11 @@ const Home = () => {
     return (
         <div>
 
-            <div className="lg:h-[80vh] grid grid-cols-2 gap-5 px-4 justify-between items-center">
+            <div className="lg:h-[80vh] grid md:grid-cols-2 grid-cols-1  gap-5 px-4 justify-between items-center">
                 <div className='flex flex-col p-5 '>
 
                     <h2 className="text-4xl font-extrabold">Welcome to <span className="text-[#6D31ED]">Crafland</span></h2>
-                    <h4 className="text-2xl font-bold text-[#040404af]">You can  <Typewriter
+                    <h4 className="text-2xl font-bold ">You can  <Typewriter
                         words={['Add Craft Item', 'Explore Peoples Collections', 'Watch Your Adding Collection']}
                         loop={false}
                         cursor

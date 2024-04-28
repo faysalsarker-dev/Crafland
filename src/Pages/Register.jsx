@@ -8,7 +8,8 @@ import { useContext, useState } from "react";
 import  { ContextData } from "../context/Context";
 import toast from "react-hot-toast";
 
-
+import { TiTick } from "react-icons/ti";
+import { RxCross2 } from "react-icons/rx";
 
 
 const Register = () => {
@@ -16,7 +17,9 @@ const Register = () => {
     const [toggle, setToggle] = useState(false)
     const [err, setErr] = useState(false)
     
-  
+    const [upper, setUpper] = useState(false)
+    const [lower, setLower] = useState(false)
+    const [charecter, setCharecter] = useState(false)
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -59,7 +62,7 @@ const Register = () => {
         googleUser()
         .then(res=>{
             setUser(res.user);
-            toast.success('Successfully Register')
+            toast.success('Google Register Successful ')
         }).catch(err=>{
             setErr(err.massage)
             toast.error("Someting went wrong")
@@ -73,13 +76,36 @@ const Register = () => {
         githubUser()
         .then(res=>{
             setUser(res.user);
-            toast.success('Successfully Register')
+            toast.success('Github Login Successful ')
         }).catch(err=>{
             setErr(err.massage) 
             toast.error("Someting went wrong")
         })
         
        
+    }
+    const handleValid = (e) => {
+        if (/^(?=.{6,}$).*/.test(e)) {
+            setCharecter(true)
+        }
+        if (! /^(?=.{6,}$).*/.test(e)) {
+            setCharecter(false)
+        }
+        if (/^(?=.*[A-Z])/.test(e)) {
+            setUpper(true)
+        }
+        if (!/^(?=.*[A-Z])/.test(e)) {
+            setUpper(false)
+        }
+        if (/^(?=.*[a-z])/.test(e)) {
+            setLower(true)
+        }
+        if (!/^(?=.*[a-z])/.test(e)) {
+            setLower(false)
+        }
+
+
+
     }
 
     return (
@@ -116,10 +142,26 @@ const Register = () => {
                         <span className="label-text my-2">Password</span>
                         <label className="input border-[#6D31ED] rounded-full flex items-center gap-2">
 
-                            <input type={`${toggle ? 'text' : 'password'}`} className=" grow" required placeholder="Password" name="password" />
+                            <input onChange={(e) => handleValid(e.target.value)} type={`${toggle ? 'text' : 'password'}`} className=" grow" required placeholder="Password" name="password" />
                             <div onClick={() => setToggle(!toggle)}>{toggle ? <FaRegEye className="text-xl" /> : <FaRegEyeSlash className="text-xl" />}</div>
                         </label>
                     </div>
+
+                    <div>
+                            <p className="mt-2">Password must contain</p>
+                            <ul className="  pl-5 mt-2">
+
+                                <li className={`${charecter ? "text-[#4e4c4c]" : "text-[#4e4c4c7e]"} flex items-center gap-2`}
+                                >{charecter ? <TiTick className="text-green-500" /> : <RxCross2 className="text-red-500" />}at least 6 characters</li>
+
+                                <li className={`${upper ? "text-[#4e4c4c]" : "text-[#4e4c4c7e]"} flex items-center gap-2`}>{upper ? <TiTick className="text-green-500" /> : <RxCross2 className="text-red-500" />}at least one uppercase letter (A-Z)</li>
+
+                                <li className={`${lower ? "text-[#4e4c4c]" : "text-[#4e4c4c7e]"} flex items-center gap-2`}>{lower ? <TiTick className="text-green-500" /> : <RxCross2 className="text-red-500" />}at least one lowercase letter (a-z)</li>
+
+
+
+                            </ul>
+                            </div>
                  
                     <div className="form-control mt-6">
                         <button className="btn bg-[#6D31ED] rounded-full text-white">Register</button>

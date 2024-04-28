@@ -1,16 +1,19 @@
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
-import {  useContext, useState } from "react";
+import {  useContext, useEffect, useState } from "react";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { ContextData } from "../context/Context";
+import toast from "react-hot-toast";
 
 
 const Login = () => {
-   const {googleUser,setUser,login,githubUser}=useContext(ContextData)
+   const {googleUser,setUser,login,githubUser,user}=useContext(ContextData)
     const [toggle,setToggle]=useState(false)
     const [err, setErr] = useState(false)
+    const location = useLocation()
+    const navigate =useNavigate()
 
 
     const handleLogin=(e)=>{
@@ -22,20 +25,25 @@ const Login = () => {
         login(email,password)
         .then(res=>{
             setUser(res.user)
+            toast.success('Login Successful ')
+            e.target.reset()
         }).catch(err=>{
             setErr(err)
+            toast.error("Someting went wrong")
         })
 
         
-        console.log("submit",email,password);
+     
     }
 
     const google=()=>{
         googleUser()
         .then(res=>{
             setUser(res.user);
+            toast.success('Google Login Successful ')
         }).catch(err=>{
            setErr(err);
+           toast.error("Someting went wrong")
         })
        
     
@@ -44,13 +52,19 @@ const Login = () => {
         githubUser()
         .then(res=>{
             setUser(res.user);
+            toast.success('Github Login Successful ')
         }).catch(err=>{
            setErr(err);
+           toast.error("Someting went wrong")
         })
        
     
     }
-   
+    useEffect(() => {
+        if (user) {
+            navigate(location.state ? location.state : '/');
+        }
+    }, [user, location.state, navigate]);
 
 
 

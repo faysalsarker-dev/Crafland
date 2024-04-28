@@ -4,7 +4,6 @@ import { ContextData } from "../context/Context";
 import MyCard from "../component/MyCard";
 
 
-
 const MyCraft = () => {
     const { user } = useContext(ContextData)
     const [data, setData] = useState([])
@@ -13,7 +12,7 @@ const MyCraft = () => {
     const [filter, setFilter] = useState('')
 
    
-    console.log(filter);
+  
 
     useEffect(() => {
         fetch(`http://localhost:5000/myCraft/${user.email}/${filter}`)
@@ -28,7 +27,7 @@ const MyCraft = () => {
     return (
         <>
             <div className="flex justify-center items-center my-6">
-                <select className="select select-bordered w-full max-w-xs text-black" onChange={(e)=>( setFilter(e.target.value))} ref={filterInfo} >
+                <select className="select select-bordered w-full max-w-xs" onChange={(e)=>( setFilter(e.target.value))} ref={filterInfo} >
                     <option disabled selected>Filter</option>
                     <option>Yes</option>
                     <option>No</option>
