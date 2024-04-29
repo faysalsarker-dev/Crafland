@@ -14,6 +14,7 @@ import Allcraft from "../Pages/Allcraft";
 import ProductDetails from "../Pages/ProductDetails";
 import UpdatePage from "../Pages/UpdatePage";
 import Category from "../Pages/Category";
+import Errpage from "../Pages/Errpage";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>,
+            },
+            {
+                path:'*',
+                element:<Errpage></Errpage>
             }
         ]
     },

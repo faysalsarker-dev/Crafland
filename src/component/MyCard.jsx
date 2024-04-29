@@ -25,7 +25,7 @@ const MyCard = ({ itm ,setReload , reload}) => {
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/deleteitam/${itm._id}`, {
+        fetch(`https://my-servar-alpha.vercel.app/deleteitam/${itm._id}`, {
           method: 'DELETE',
         })
           .then(res => res.json())
@@ -80,6 +80,7 @@ const MyCard = ({ itm ,setReload , reload}) => {
           <h2 className="card-title font-bold">{itm.name}</h2>
           <h2 className="text-slate-500">{itm.sub_category}</h2>
         </div>
+        <p className="text-slate-600">{itm.description.slice(0,100)}....</p>
         <div className="flex gap-2  font-semibold">
           <span className="flex gap-2 items-center badge bg-[#FF56A5] text-white shadow-xl">Customization: {itm.customization}</span>
           <span className="flex gap-2 items-center badge bg-[#6D31ED] text-white shadow-xl">{itm.stockStatus}</span>

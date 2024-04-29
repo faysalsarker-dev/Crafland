@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 
 
 const Login = () => {
-   const {googleUser,setUser,login,githubUser,user}=useContext(ContextData)
+   const {googleUser,setUser,signIn,githubUser,user}=useContext(ContextData)
     const [toggle,setToggle]=useState(false)
     const [err, setErr] = useState(false)
     const location = useLocation()
@@ -22,13 +22,15 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        login(email,password)
+
+        signIn(email,password)
         .then(res=>{
             setUser(res.user)
             toast.success('Login Successful ')
             e.target.reset()
         }).catch(err=>{
-            setErr(err)
+            setErr(err.message)
+            console.log(err);
             toast.error("Someting went wrong")
         })
 
@@ -42,7 +44,7 @@ const Login = () => {
             setUser(res.user);
             toast.success('Google Login Successful ')
         }).catch(err=>{
-           setErr(err);
+           setErr(err.message);
            toast.error("Someting went wrong")
         })
        
@@ -54,7 +56,7 @@ const Login = () => {
             setUser(res.user);
             toast.success('Github Login Successful ')
         }).catch(err=>{
-           setErr(err);
+           setErr(err.message);
            toast.error("Someting went wrong")
         })
        

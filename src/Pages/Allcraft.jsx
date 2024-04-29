@@ -4,14 +4,25 @@ import { MdOutlineAttachMoney } from "react-icons/md";
 import { FaRegStar } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "/public/groovyWalk.json"
 
 const Allcraft = () => {
+  const [loading, setLoading] = useState(true)
   const [table, setTable] = useState([])
   useEffect(() => {
-    fetch('http://localhost:5000/allCraft')
+    setLoading(true)
+    fetch('https://my-servar-alpha.vercel.app/allCraft')
       .then(res => res.json())
-      .then(data => setTable(data))
+      .then(data => {
+        setTable(data)
+      setLoading(false)
+      })
+      .catch(err => {
+        console.log(err)
+        setLoading(false)
+
+    })
   }, [])
 
 
@@ -20,8 +31,12 @@ const Allcraft = () => {
   const totalRating = table.reduce((acc, pd) => acc + parseFloat(pd.rating), 0)
   const averageRating = table.length > 0 ? totalRating / table.length : 0;
 
+  if(loading){
+    return <div className="h-[80vh] flex justify-center items-center"> <Lottie className=" w-2/4" animationData={groovyWalkAnimation} loop={true} /></div>
+}
+
   return (
-    <div>
+    <div className="mt-5">
       <h3 className="text-2xl font-extrabold">Overview</h3>
       <div className=" grid lg:grid-cols-3 grid-cols-1 gap-4">
         <div className="h-[200px] bg-[#F5F1FE] rounded-xl my-4 flex flex-col p-14 space-y-3">

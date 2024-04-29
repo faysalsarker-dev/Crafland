@@ -5,26 +5,38 @@ import { useParams } from "react-router-dom";
 import { MdAttachMoney } from "react-icons/md";
 import { MdAccessTime } from "react-icons/md";
 
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "/public/groovyWalk.json"
+
 
 const ProductDetails = () => {
+    const [loading,setLoading]=useState(true)
     const {id} =useParams()
     const [data,setData]=useState({})
-console.log(id);
+
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/productDetails/${id}`)
+        setLoading(true)
+        fetch(`https://my-servar-alpha.vercel.app/productDetails/${id}`)
         .then(res=>res.json())
         .then(info=>{
             setData(info);
-            console.log(info);
+            setLoading(false)
 
+        }) .catch(err=>{
+            console.log(err)
+            setLoading(false)
+        
         })
 
     },[id])
-console.log(data.name);
+
 
 const {img,name,sub_category,price,description,customization,stockStatus,processing_Time,rating}= data
 
+if(loading){
+    return <div className="h-[80vh] flex justify-center items-center"> <Lottie className=" w-2/4" animationData={groovyWalkAnimation} loop={true} /></div>
+}
 
     return (
         <div className="grid lg:grid-cols-2 grid-cols-1 py-10 gap-4 lg:px-0 px-4">

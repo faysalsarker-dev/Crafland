@@ -2,21 +2,29 @@ import {  useEffect, useRef, useState } from "react";
 
 import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "/public/groovyWalk.json"
 
 
 const UpdatePage = () => {
+    const [loading,setLoading]=useState(true)
    
     const { id } = useParams()
     const [data, setData] = useState({})
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/productDetails/${id}`)
+        setLoading(true)
+        fetch(`https://my-servar-alpha.vercel.app/productDetails/${id}`)
             .then(res => res.json())
             .then(info => {
                 setData(info);
-                console.log(info);
+                setLoading(false)
+               
 
+            }).catch(err=>{
+                console.log(err)
+                setLoading(false)
             })
 
     }, [id])
@@ -80,7 +88,7 @@ const UpdatePage = () => {
             }).then((result) => {
               if (result.isConfirmed) {
     
-                fetch(`http://localhost:5000/update/${id}`, {
+                fetch(`https://my-servar-alpha.vercel.app/update/${id}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
@@ -151,7 +159,9 @@ const UpdatePage = () => {
 
 
 
-
+if(loading){
+    return <div className="h-[80vh] flex justify-center items-center"> <Lottie className=" w-2/4" animationData={groovyWalkAnimation} loop={true} /></div>
+}
 
     return (
         <div className="">

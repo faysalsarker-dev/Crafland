@@ -33,7 +33,7 @@ const AddCraft = () => {
             name, img, processing_Time, price, rating, sub_category, customization, stockStatus,description, email, user_name
         };
 
-        fetch('http://localhost:5000/addcraft', {
+        fetch('http://http://localhost:5000/addcraft', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

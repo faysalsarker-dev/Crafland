@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 
 
 
-import { Autoplay, Navigation,Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 
 const Slider = () => {
@@ -28,30 +28,35 @@ const Slider = () => {
                             clickable: true,
                         }}
 
-                        modules={[Autoplay, Navigation,Pagination]}
+                        modules={[Autoplay, Navigation, Pagination]}
                         className="mySwiper z-10  container"
                     >
 
-        <SwiperSlide  ><div className='w-full p-12 lg:h-[80vh] md:h-[40vh] h-[45vh] bg-cover bg-no-repeat bg-center overflow-hidden rounded-lg' style={{ backgroundImage: 'url(https://img.freepik.com/free-photo/wicker-basket-isolated_2829-18054.jpg?t=st=1714126501~exp=1714130101~hmac=870689642742bf9e9de8a31404bec0caa9a4a52c30fddab79b6f7a9a0e341de2&w=826)' }}>
+                        {/* <SwiperSlide  ><div className='w-full p-12 lg:h-[80vh] md:h-[40vh] h-[45vh] bg-cover bg-no-repeat bg-center overflow-hidden rounded-lg' style={{ backgroundImage: 'url(https://img.freepik.com/free-photo/wicker-basket-isolated_2829-18054.jpg?t=st=1714126501~exp=1714130101~hmac=870689642742bf9e9de8a31404bec0caa9a4a52c30fddab79b6f7a9a0e341de2&w=826)' }}>
 
 
 
 
 
 
-                        </div></SwiperSlide>
+                        </div></SwiperSlide> */}
 
 
 
 
-                        <SwiperSlide ><div className='w-full p-12 lg:h-[80vh] md:h-[40vh] h-[45vh] bg-cover bg-no-repeat bg-center  overflow-hidden rounded-lg' style={{ backgroundImage: 'url(<a href="https://www.freepik.com/free-photo/close-up-arrangement-modern-vases_31276789.htm#fromView=search&page=2&position=17&uuid=262a5723-f56f-4ad2-99f4-50c4b3bf22a5">Image by freepik</a>)' }}>
+                        <SwiperSlide className='px-6 py-8 w-full lg:h-[80vh] md:h-[40vh] h-[45vh] '>
+                            <img className='w-[90%] mx-auto' src="https://i.ibb.co/6XsbcSJ/Picsart-24-04-29-09-43-38-682.png" />
+                        </SwiperSlide>
 
 
+                        <SwiperSlide className=' p-6 w-full lg:h-[80vh] md:h-[40vh] h-[45vh] flex justify-center items-center'>
+                            <img className='w-[60%]  mx-auto' src="https://i.ibb.co/vh9nJNS/Picsart-24-04-29-10-23-56-299.png" />
+                        </SwiperSlide>
 
 
-
-
-                        </div></SwiperSlide>
+                        <SwiperSlide className=' px-6 py-8  w-full lg:h-[80vh] md:h-[40vh] h-[45vh] '>
+                            <img className='w-[70%]' src="https://i.ibb.co/G3vDzrq/Picsart-24-04-29-09-59-32-657.png" />
+                        </SwiperSlide>
 
 
 

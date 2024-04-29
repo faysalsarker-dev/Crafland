@@ -29,8 +29,11 @@ const Register = () => {
         const photourl = form.PhotoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password,name,photourl);
 
+        setErr('')
+        if (!upper && !lower && !charecter) {
+            return toast.error("Please fulfill the requirement")
+        }
 
        
        
@@ -42,6 +45,13 @@ const Register = () => {
                 .then(updatedUser => {
                     setUser(updatedUser);
                     toast.success("Register successful")
+
+                    setCharecter(false)
+                    setUpper(false)
+                    setLower(false)
+
+
+
                 })
 
             e.target.reset();

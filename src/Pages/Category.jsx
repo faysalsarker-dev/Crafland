@@ -1,22 +1,33 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CategoryCard from "../component/CategoryCard";
-
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "/public/groovyWalk.json"
 
 const Category = () => {
-
+    const [loading,setLoading]=useState(true)
     const {info}=useParams()
     const [data,setData]=useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/category/${info}`)
+        setLoading(true)
+        fetch(`https://my-servar-alpha.vercel.app/category/${info}`)
         .then(res=>res.json())
-        .then(obj=>setData(obj))
-        .catch(err=>console.log(err))
+        .then(obj=>{
+            setData(obj)
+            setLoading(false)
+        })
+        .catch(err=>{
+            console.log(err)
+            setLoading(false)
+        
+        })
     },[info])
 
 
-console.log(data);
+    if(loading){
+        return <div className="h-[80vh] flex justify-center items-center"> <Lottie className=" w-2/4" animationData={groovyWalkAnimation} loop={true} /></div>
+    }
 
 
 
