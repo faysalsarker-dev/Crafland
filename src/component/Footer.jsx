@@ -1,15 +1,22 @@
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center p-10 bg-base-200 mt-10 text-black rounded">
+        <footer className="footer footer-center p-10 bg-base-100   mt-16  rounded">
         <nav className="grid grid-flow-col gap-4">
-          <Link to='/' className="link link-hover">Home</Link>
-          <Link to='/AllArt&craft' className="link link-hover">All Art & craft</Link>
-          <a className="link link-hover">Privacy</a>
+        <div className=""><NavLink to='/' className={({ isActive }) =>
+                  isActive ? " active-route nav-link-active text-[#6D31ED] border-b-2  border-b-[#6D31ED] font-bold" : ""
+                } >Home</NavLink></div>
+                <div className=""><NavLink to='/AllArt&craft' className={({ isActive }) =>
+                  isActive ? "active-route nav-link-active text-[#6D31ED] border-b-2  border-b-[#6D31ED] font-bold" : ""
+                } >All Art & craft </NavLink></div>
+                <div className=""><NavLink to='/AddCraftItem' className={({ isActive }) =>
+                  isActive ? "active-route nav-link-active text-[#6D31ED] border-b-2  border-b-[#6D31ED] font-bold" : ""
+                } >Add Craft Item</NavLink></div>
+               
       
         </nav> 
         <nav>

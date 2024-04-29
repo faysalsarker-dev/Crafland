@@ -37,15 +37,20 @@ const MyCraft = () => {
     
     return (
         <>
-            <div className="flex justify-start items-center my-6">
-           <div className="border-2 flex justify-center items-center gap-4 px-4 rounded-lg">
-                <div>Filter By: </div>
-                    <select className="select  max-w-xs" onChange={(e)=>( setFilter(e.target.value))} ref={filterInfo} >
-                        <option disabled selected>All</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                    </select>
-           </div>
+            <div className="flex justify-start items-center gap-2 my-6 py-8">
+           
+                
+                    <div>
+                        Filter By customization :
+                    </div>
+                    
+                        <select className="select select-bordered   w-1/4 max-w-xs" onChange={(e)=>( setFilter(e.target.value))} ref={filterInfo} >
+                            <option disabled selected>All</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                
+           
             </div>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
 

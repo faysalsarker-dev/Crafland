@@ -47,7 +47,19 @@ const Navber = () => {
               <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
               <div className="menu p-4 w-80 min-h-full bg-base-200 text-base-content flex flex-col gap-5 py-8">
                 {/* Sidebar content here */}
-                {nav}
+                <div className="py-5"><NavLink to='/' className={({ isActive }) =>
+                  isActive ? " active-route nav-link-active text-[#6D31ED] border-b-2  border-b-[#6D31ED] font-bold" : ""
+                } >Home</NavLink></div>
+                <div className="py-5"><NavLink to='/AllArt&craft' className={({ isActive }) =>
+                  isActive ? "active-route nav-link-active text-[#6D31ED] border-b-2  border-b-[#6D31ED] font-bold" : ""
+                } >All Art & craft </NavLink></div>
+                <div className="py-5"><NavLink to='/AddCraftItem' className={({ isActive }) =>
+                  isActive ? "active-route nav-link-active text-[#6D31ED] border-b-2  border-b-[#6D31ED] font-bold" : ""
+                } >Add Craft Item</NavLink></div>
+                <div className="py-5"><NavLink to='/MyArt&CraftList' className={({ isActive }) =>
+                  isActive ? "active-route nav-link-active text-[#6D31ED] border-b-2  border-b-[#6D31ED] font-bold" : ""
+                } >My Art & Craft List</NavLink></div>
+
 
               </div>
             </div>
@@ -64,7 +76,7 @@ const Navber = () => {
         {nav}
 
       </div>
-      <div className="navbar-end gap-3"><label className="swap swap-rotate">
+      <div className="navbar-end gap-5"><label className="swap swap-rotate">
 
         {/* this hidden checkbox controls the state */}
         <input type="checkbox" onChange={() => setTheme(!theme)} />
@@ -86,9 +98,9 @@ const Navber = () => {
             <Tooltip anchorSelect=".my-anchor-element" place="top" className="z-40">
               {user.displayName === null ? 'User name is not found' : user.displayName}
             </Tooltip>
-            <button onClick={handleLogOut} className="bg-[#6D31ED] text-white  rounded-full px-3 py-2">Logout</button></> : <>
-            <Link to='/login' className="bg-[#6D31ED] text-white  rounded-full px-3 py-2">Login</Link>
-            <Link to='/register' className="bg-[#6D31ED]  text-white rounded-full px-3 py-2">Register</Link>
+            <button onClick={handleLogOut} className=" bg-[#6D31ED] text-white  rounded-full px-3 py-2">Logout</button></> : <>
+            <Link to='/login' className="border-[#6D31ED] border text-[6D31ED]  rounded-full px-3 py-2">Login</Link>
+            <Link to='/register' className="bg-[#6D31ED] md:block hidden text-white rounded-full px-3 py-2">Register</Link>
           </>
         }
 

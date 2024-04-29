@@ -5,7 +5,7 @@ import { FaRegEye } from "react-icons/fa";
 
 import { FaRegEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
-import  { ContextData } from "../context/Context";
+import { ContextData } from "../context/Context";
 import toast from "react-hot-toast";
 
 import { TiTick } from "react-icons/ti";
@@ -13,10 +13,10 @@ import { RxCross2 } from "react-icons/rx";
 
 
 const Register = () => {
-    const {googleUser,createuser,setUser,profileUpdate,githubUser}= useContext(ContextData)
+    const { googleUser, createuser, setUser, profileUpdate, githubUser } = useContext(ContextData)
     const [toggle, setToggle] = useState(false)
     const [err, setErr] = useState(false)
-    
+
     const [upper, setUpper] = useState(false)
     const [lower, setLower] = useState(false)
     const [charecter, setCharecter] = useState(false)
@@ -31,68 +31,68 @@ const Register = () => {
         const password = form.password.value;
 
         setErr('')
-        if (!upper && !lower && !charecter) {
+        if (!/^(?=.*[A-Z])(?=.*[a-z]).{6,}$/.test(password)) {
             return toast.error("Please fulfill the requirement")
         }
 
-       
-       
-
-
-        createuser(email,password)
-        .then(() => {
-            profileUpdate(name, photourl)
-                .then(updatedUser => {
-                    setUser(updatedUser);
-                    toast.success("Register successful")
-
-                    setCharecter(false)
-                    setUpper(false)
-                    setLower(false)
 
 
 
-                })
 
-            e.target.reset();
-        })
-        .catch(error => {
-            setErr(error.message);
-        })
-        .catch(err => {
-            console.log(err.massage);
-            setErr(err.massage)
-            toast.error('Something went wrong');
-        })
-        
-     
+        createuser(email, password)
+            .then(() => {
+                profileUpdate(name, photourl)
+                    .then(updatedUser => {
+                        setUser(updatedUser);
+                        toast.success("Register successful")
+
+                        setCharecter(false)
+                        setUpper(false)
+                        setLower(false)
+
+
+
+                    })
+
+                e.target.reset();
+            })
+            .catch(error => {
+                setErr(error.message);
+            })
+            .catch(err => {
+                console.log(err.massage);
+                setErr(err.massage)
+                toast.error('Something went wrong');
+            })
+
+
     };
 
     const handleGoogle = () => {
         googleUser()
-        .then(res=>{
-            setUser(res.user);
-            toast.success('Google Register Successful ')
-        }).catch(err=>{
-            setErr(err.massage)
-            toast.error("Someting went wrong")
-        })
-        
-       
+            .then(res => {
+                setUser(res.user);
+                toast.success('Google Register Successful ')
+            }).catch(err => {
+                setErr(err.massage)
+                toast.error("Someting went wrong")
+            })
+
+
     }
 
     const handleGithub = () => {
         console.log('github');
         githubUser()
-        .then(res=>{
-            setUser(res.user);
-            toast.success('Github Login Successful ')
-        }).catch(err=>{
-            setErr(err.massage) 
-            toast.error("Someting went wrong")
-        })
-        
-       
+            .then(res => {
+                setUser(res.user);
+                toast.success('Github Login Successful ')
+            }).catch(err => {
+                setErr(err.massage)
+                toast.error("Someting went wrong")
+            })
+
+
     }
     const handleValid = (e) => {
         if (/^(?=.{6,}$).*/.test(e)) {
@@ -146,7 +146,7 @@ const Register = () => {
 
                         {err === 'Firebase: Error (auth/email-already-in-use).' ?
 
-                                <span className="text-red-500">This email already have on account</span> : <span>{err}</span>}
+                            <span className="text-red-500">This email already have on account</span> : <span className="text-red-500">{err}</span>}
                     </div>
                     <div className="form-control">
                         <span className="label-text my-2">Password</span>
@@ -158,21 +158,21 @@ const Register = () => {
                     </div>
 
                     <div>
-                            <p className="mt-2">Password must contain</p>
-                            <ul className="  pl-5 mt-2">
+                        <p className="mt-2">Password must contain</p>
+                        <ul className="  pl-5 mt-2">
 
-                                <li className={`${charecter ? "text-[#4e4c4c]" : "text-[#4e4c4c7e]"} flex items-center gap-2`}
-                                >{charecter ? <TiTick className="text-green-500" /> : <RxCross2 className="text-red-500" />}at least 6 characters</li>
+                            <li className={`${charecter ? "text-[#4e4c4c]" : "text-[#4e4c4c7e]"} flex items-center gap-2`}
+                            >{charecter ? <TiTick className="text-green-500" /> : <RxCross2 className="text-red-500" />}at least 6 characters</li>
 
-                                <li className={`${upper ? "text-[#4e4c4c]" : "text-[#4e4c4c7e]"} flex items-center gap-2`}>{upper ? <TiTick className="text-green-500" /> : <RxCross2 className="text-red-500" />}at least one uppercase letter (A-Z)</li>
+                            <li className={`${upper ? "text-[#4e4c4c]" : "text-[#4e4c4c7e]"} flex items-center gap-2`}>{upper ? <TiTick className="text-green-500" /> : <RxCross2 className="text-red-500" />}at least one uppercase letter (A-Z)</li>
 
-                                <li className={`${lower ? "text-[#4e4c4c]" : "text-[#4e4c4c7e]"} flex items-center gap-2`}>{lower ? <TiTick className="text-green-500" /> : <RxCross2 className="text-red-500" />}at least one lowercase letter (a-z)</li>
+                            <li className={`${lower ? "text-[#4e4c4c]" : "text-[#4e4c4c7e]"} flex items-center gap-2`}>{lower ? <TiTick className="text-green-500" /> : <RxCross2 className="text-red-500" />}at least one lowercase letter (a-z)</li>
 
 
 
-                            </ul>
-                            </div>
-                 
+                        </ul>
+                    </div>
+
                     <div className="form-control mt-6">
                         <button className="btn bg-[#6D31ED] rounded-full text-white">Register</button>
                     </div>

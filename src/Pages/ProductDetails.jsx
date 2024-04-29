@@ -39,7 +39,7 @@ if(loading){
 }
 
     return (
-        <div className="grid lg:grid-cols-2 grid-cols-1 py-10 gap-4 lg:px-0 px-4">
+        <div className="grid lg:grid-cols-2 grid-cols-1 lg:mt-10 py-10 gap-4 lg:px-0 px-4">
          <div className="w-full ">
             <img className=" w-full rounded-lg" src={img} alt={name} />
          </div>
