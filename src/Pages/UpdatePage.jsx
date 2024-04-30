@@ -169,19 +169,19 @@ if(loading){
 
 
             <div className="">
-                <h3 className="text-4xl font-extrabold my-8">Update your Craft Item</h3>
+                <h3 className="md:text-4xl text-2xl md:text-start text-center font-extrabold my-8">Update your Craft Item</h3>
 
 
-                <form onSubmit={handleSubmit} className="px-4">
-                    <div className="flex gap-8">
-                        <div className="form-control flex-1">
+                <form onSubmit={handleSubmit}>
+                    <div className="grid md:grid-cols-2 grid-cols-1 gap-8">
+                        <div className="form-control ">
                             <label className="label">
                                 <span className="label-text">item name</span>
                             </label>
                             <input type="text" name="name" placeholder="Your item name" defaultValue={name} className="input input-bordered" required />
                         </div>
 
-                        <div className="form-control flex-1">
+                        <div className="form-control ">
                             <label className="label">
                                 <span className="label-text">image</span>
                             </label>
@@ -193,15 +193,15 @@ if(loading){
 
 
 
-                    <div className="flex gap-8 mt-5">
-                        <div className="form-control flex-1">
+                    <div className=" grid md:grid-cols-2 grid-cols-1 gap-8 mt-5">
+                        <div className="form-control ">
                             <label className="label">
                                 <span className="label-text">Processing time</span>
                             </label>
                             <input type="number" name="processingTime" defaultValue={processing_Time} placeholder="Processing time" className="input input-bordered" required />
                         </div>
 
-                        <div className="form-control flex-1">
+                        <div className="form-control ">
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
@@ -214,8 +214,8 @@ if(loading){
 
                     </div>
 
-                    <div className="flex gap-8 mt-5">
-                        <div className="form-control flex-1">
+                    <div className=" grid md:grid-cols-2 grid-cols-1 gap-8 mt-5">
+                        <div className="form-control ">
                             <select className="select select-bordered w-full " defaultValue={sub_category} ref={subcategoryRef}>
                                 <option disabled selected>subcategory Name</option>
                                 <option>Wooden Furniture & Sculptures</option>
@@ -227,7 +227,7 @@ if(loading){
                             </select>
                         </div>
 
-                        <div className="form-control flex-1">
+                        <div className="form-control ">
                             <select className="select select-bordered w-full "defaultValue={customization} ref={customizationRef}>
                                 <option disabled selected>Customization</option>
                                 <option>Yes</option>
@@ -242,8 +242,8 @@ if(loading){
                     </div>
 
 
-                    <div className="flex gap-8 mt-5">
-                        <div className="form-control flex-1">
+                    <div className=" grid md:grid-cols-2 gap-8 mt-5">
+                        <div className="form-control ">
                             <label className="label">
                                 <span className="label-text">Status -example: In stock, Made to Order</span>
                             </label>
@@ -254,7 +254,7 @@ if(loading){
                             </select>
                         </div>
 
-                        <div className="form-control flex-1">
+                        <div className="form-control ">
 
                             <label className="label">
                                 <span className="label-text">rating</span>
