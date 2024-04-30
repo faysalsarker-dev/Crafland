@@ -32,7 +32,7 @@ const Category = () => {
 
 
     return (
-        <div className="mt-4">
+        <div className="grid gap-8 mt-10">
             {
                 data?.map((pd,idx)=><CategoryCard key={idx} pd={pd}></CategoryCard>)
             }

@@ -48,7 +48,7 @@ const Allcraft = () => {
         <div className="h-[200px] bg-[#F0F9FF] rounded-xl  flex  justify-center items-center ">
           <div className="space-y-3">
             <h5 className="text-xl font-semibold">Total Price</h5>
-            <h3 className="text-4xl font-bold flex gap-2 items-center"><MdOutlineAttachMoney className="text-4xl" />{totalPrice}</h3>
+            <h3 className="text-4xl font-bold flex gap-2 items-center"><MdOutlineAttachMoney className="text-4xl" />{totalPrice.toFixed(2)}</h3>
           </div>
         </div>
         <div className="h-[200px] bg-[#F1F8FD] rounded-xl col-span-2 md:col-span-1 flex  justify-center items-center ">

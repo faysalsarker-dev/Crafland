@@ -94,7 +94,7 @@ const Login = () => {
                         </label>
                         {err === 'Firebase: Error (auth/email-already-in-use).' ?
 
-                                <span className="text-red-500">This email already have on account</span> : <span className="text-red-500">{err.massage}</span>}
+                                <span className="text-red-500">This email already have on account</span> : <span className="text-red-500">{err}</span>}
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn bg-[#6D31ED] rounded-full text-white">Login</button>

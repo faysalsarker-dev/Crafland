@@ -33,7 +33,7 @@ const AddCraft = () => {
             name, img, processing_Time, price, rating, sub_category, customization, stockStatus,description, email, user_name
         };
 
-        fetch('http://http://localhost:5000/addcraft', {
+        fetch('https://my-servar-alpha.vercel.app/addcraft', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -103,7 +103,7 @@ const AddCraft = () => {
 
                     <div className="flex gap-8 mt-5">
                         <div className="form-control flex-1">
-                            <select className="select select-bordered w-full " ref={subcategoryRef}>
+                            <select className="select select-bordered w-full " required ref={subcategoryRef}>
                                 <option disabled selected>subcategory Name</option>
                                 <option>Wooden Furniture & Sculptures</option>
                                 <option>Wooden Home Decor</option>
@@ -115,7 +115,7 @@ const AddCraft = () => {
                         </div>
 
                         <div className="form-control flex-1">
-                            <select className="select select-bordered w-full " ref={customizationRef}>
+                            <select className="select select-bordered w-full " required ref={customizationRef}>
                                 <option disabled selected>Customization</option>
                                 <option>Yes</option>
                                 <option>No</option>

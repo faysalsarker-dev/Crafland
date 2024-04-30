@@ -12,6 +12,8 @@ const MyCraft = () => {
     const [reload, setReload] = useState(false)
     const filterInfo = useRef()
     const [filter, setFilter] = useState('')
+    const [filtervalue, setFilterValue] = useState('All')
+
 
    
   
@@ -44,19 +46,25 @@ const MyCraft = () => {
                         Filter By customization :
                     </div>
                     
-                        <select className="select select-bordered   w-1/4 max-w-xs" onChange={(e)=>( setFilter(e.target.value))} ref={filterInfo} >
-                            <option disabled selected>All</option>
-                            <option>Yes</option>
-                            <option>No</option>
+                        <select className="select select-bordered  w-1/4 max-w-xs" onChange={(e)=>( setFilter(e.target.value) , setFilterValue(e.target.value))} ref={filterInfo} >
+                            <option disabled selected={filtervalue === 'All'}>All</option>
+                            <option selected={filtervalue === 'Yes'}>Yes</option>
+                            <option selected={filtervalue === 'No'}>No</option>
                         </select>
                 
            
             </div>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
 
-                {
-                    data.map(itm => <MyCard key={itm._id} itm={itm} setReload={setReload} reload={reload}></MyCard>)
-                }
+            { data.length > 0 ? (
+                    data.map((itm) => (
+                        <MyCard key={itm._id} itm={itm} setReload={setReload} reload={reload}></MyCard>
+                    ))
+                ) : (
+                    <div className="flex justify-center items-center col-span-3">
+                        <h3 className="text-3xl font-bold text-center">You havent added any item</h3>
+                    </div>
+                )}
 
             </div>
         </>

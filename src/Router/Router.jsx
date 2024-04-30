@@ -15,6 +15,7 @@ import ProductDetails from "../Pages/ProductDetails";
 import UpdatePage from "../Pages/UpdatePage";
 import Category from "../Pages/Category";
 import Errpage from "../Pages/Errpage";
+import NotFoundPage from "../component/NotFoundPage";
 
 const router = createBrowserRouter([
     {
@@ -70,7 +71,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'*',
-                element:<Errpage></Errpage>
+                element:<NotFoundPage></NotFoundPage>
             }
         ]
     },

@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import { MdAttachMoney } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const CategoryCard = ({pd}) => {
@@ -19,7 +20,7 @@ const CategoryCard = ({pd}) => {
             </div>
           <div className=" flex justify-between items-center">
            <button className="btn bg-[#6D31ED] text-white"> <Link to={`/productDetails/${_id}`}>View more details
-            </Link></button><p className="text-2xl font-bold text-[#6D31ED]">{price}</p>
+            </Link></button><p className="text-2xl font-bold text-[#6D31ED] flex items-center"><MdAttachMoney />{price}</p>
             </div>
         </div>
       </div>
